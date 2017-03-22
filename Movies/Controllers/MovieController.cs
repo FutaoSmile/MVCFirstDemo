@@ -42,8 +42,6 @@ namespace Movies.Controllers
             return View(result.ToList());
             //return Content(result.ToList());
         }
-
-
         [ActionName("ListTemplete")]
         [HttpPost]
         public ActionResult ListTempleteA(string list, string searchString)
@@ -55,7 +53,6 @@ namespace Movies.Controllers
             List<SelectListItem> selectList = new List<SelectListItem>();
             foreach (var a in dbContext.Levels)
             {
-
                 selectList.Add(new SelectListItem() { Text = a.LevelName, Value = a.LevelID.ToString() });
             }
             ViewData["list"] = selectList;
@@ -207,7 +204,6 @@ namespace Movies.Controllers
         [ActionName("Search")]
         public ActionResult SearchResult(Movie movie)
         {
-
             return View();
         }
     }
