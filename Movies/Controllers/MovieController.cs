@@ -19,12 +19,20 @@ namespace Movies.Controllers
             return View(dbContext.Movies.ToList());
         }
 
-        public ActionResult ListTemplete()
+        public ActionResult ListTemplete(string searchString)
         {
-            ViewData.Model = dbContext.Movies;
-            return View();
+            MovieDBContext dbContext = new MovieDBContext();
+            var result = from u in dbContext.Movies
+                         select u;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                result = result.Where(u => u.Title == searchString);
+            }
+            return View(result.ToList());
         }
-        public ActionResult Create()
+
+
+            public ActionResult Create()
         {
             MovieDBContext dbContext = new MovieDBContext();
             ViewBag.level = new SelectList(dbContext.Levels, "LevelName", "LevelName");
