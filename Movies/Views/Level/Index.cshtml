@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MovieEF.Level>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <th>
+            @item.LevelName
+            <br/>
+        </th>
+    </tr>
+}
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+@Html.ActionLink("Create","Create")

@@ -1,0 +1,36 @@
+﻿@model MVCFirstDemo.Models.Student
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassInfo_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassInfo_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class.ClassInfoName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class.ClassInfoName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

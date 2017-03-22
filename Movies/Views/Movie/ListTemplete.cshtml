@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MovieEF.Movie>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Search","Search")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.level)
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.level.LevelName)
+        </td>
+        <td>
+            @Html.ActionLink("EditTemplate", "EditTemplate", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "DeleteTemplate", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<div>
+    @{Html.RenderAction("Index");}
+    @* 一个视图中包含另一个部分视图，实现了视图的重用*@
+</div>

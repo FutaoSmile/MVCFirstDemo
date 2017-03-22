@@ -1,0 +1,41 @@
+﻿@model MvcMovie.Models.CustomerVM
+
+
+
+@{
+    ViewBag.Title = "GetCustomer";
+}
+
+<h2>GetCustomer</h2>
+
+<div>
+    <h4>CustomerVM</h4>
+    <hr/>
+    <form action="/Customer/GetCustomer" method="post">
+        <label>请输入用户ID</label>
+        <input placeholder="请输入用户的ID" type="text" id="txtID" name="txtID"/>
+        <button class="btn-default" type="submit">查询</button>
+    </form>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerNO)
+        </dd>
+    </dl>
+</div>
+<p>
+   @* @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+@*<label>@Model.CustomerName</label>*@

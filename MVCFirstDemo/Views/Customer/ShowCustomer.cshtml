@@ -1,0 +1,40 @@
+﻿@using MVCFirstDemo.Models
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCustomer</title>
+</head>
+<body>
+<div>
+    @{
+        var customer = ViewData["customer"] as Customer;
+    }
+    <table border="1px">
+        <tr>
+            <td>用户名：</td><td>@customer.SName</td>
+        </tr>
+        <tr>
+            <td>年龄：</td>
+            <td>@customer.Age</td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <td>@customer.Email</td>
+        </tr>
+        <tr>
+            <td>顾客编号：</td>
+            <td>@customer.Id</td>
+        </tr>
+    </table>
+    
+    <label id="yzm"></label>
+</div>
+</body>
+</html>

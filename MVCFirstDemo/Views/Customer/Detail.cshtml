@@ -1,0 +1,41 @@
+﻿@using MVCFirstDemo.Models
+@model Customer
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+<div>
+    @{
+        Customer customer = ViewData.Model;
+    }
+    
+    <table border="1px">
+        <tr>
+            <td>用户名：</td>
+            <td>@customer.SName</td>
+        </tr>
+        <tr>
+            <td>年龄：</td>
+            <td>@customer.Age</td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <td>@customer.Email</td>
+        </tr>
+        <tr>
+            <td>顾客编号：</td>
+            <td>@customer.Id</td>
+        </tr>
+    </table>
+
+    @Html.TextBoxFor(Model=>@Model.Id);
+</div>
+</body>
+</html>

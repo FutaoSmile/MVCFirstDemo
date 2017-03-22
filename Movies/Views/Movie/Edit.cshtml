@@ -1,0 +1,35 @@
+﻿<h2>Edit</h2>
+@using MovieEF
+    @model Movie
+    <div class="row" >
+        <div class="col-md-2">
+            @Html.DisplayNameFor(Model => Model.Title)
+        </div>
+        <div class="col-md-4">
+            @Html.EditorFor(Model=>Model.Title)
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-2">
+        @Html.DisplayNameFor(Model => Model.Price)
+    </div>
+    <div class="col-md-4">
+        @Html.EditorFor(Model => Model.Price)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        @Html.DisplayNameFor(Model => Model.ReleaseTime)
+    </div>
+    <div class="col-md-4">
+        @Html.EditorFor(Model => Model.ReleaseTime)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        @Html.DisplayNameFor(Model => Model.level.LevelName)
+    </div>
+    <div class="col-md-4">
+        @Html.EditorFor(Model => Model.level.LevelName)
+    </div>
+</div>

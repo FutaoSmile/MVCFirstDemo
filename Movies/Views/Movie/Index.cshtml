@@ -1,0 +1,37 @@
+﻿@model  IEnumerable<MovieEF.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="row" style="margin-top: 20px;margin-bottom: 20px">
+    <div class="col-md-2">
+        <label class="text-success" style="font-size: 20px">Title</label>
+    </div>
+    <div class="col-md-2">
+        <label class="text-success" style="font-size: 20px">Genre</label>
+    </div>
+    <div class="col-md-2">
+        <label class="text-success" style="font-size: 20px">Price</label>
+    </div>
+    <div class="col-md-2">
+        <label class="text-success" style="font-size: 20px">CreateTime</label>
+    </div>
+    <div class="col-md-2">
+        <label class="text-success" style="font-size: 20px">Level</label>
+    </div>
+</div>
+<div class="row" style="margin-top: 5px;">
+    @foreach (var item in Model)
+    {
+        <div class="row" style="margin-top: 5px">
+            <div class="col-md-2">@item.Title</div>
+            <div class="col-md-2">@item.Genre</div>
+            <div class="col-md-2">@item.Price</div>
+            <div class="col-md-2">@item.ReleaseTime</div>
+            <div class="col-md-2">@item.level.LevelName</div>
+            @Html.ActionLink("Edit","Edit",new { id=item.ID}) | 
+            @Html.ActionLink("Details", "Details",new {id=item.ID})
+        </div>
+    }
+</div>

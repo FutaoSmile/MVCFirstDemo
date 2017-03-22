@@ -1,0 +1,13 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#search").click(function() {
+            var request = new XMLHttpRequest();
+            request.open("GET", "/Ajax/Details?id=" + parseInt($("#keyWord").val()), true);
+            request.send();
+        });
+    })
+</script>
+<label>请输入要查询的学生编号：</label>
+<input type="text" id="keyWord"/>
+<button id="search">查询</button>
