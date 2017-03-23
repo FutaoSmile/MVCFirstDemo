@@ -42,33 +42,33 @@ namespace Movies.Controllers
             return View(result.ToList());
             //return Content(result.ToList());
         }
-        [ActionName("ListTemplete")]
-        [HttpPost]
-        public ActionResult ListTempleteA(string list, string searchString)
-        {
-            int val = Convert.ToInt32(list);
-            MovieDBContext dbContext = new MovieDBContext();
-            var result = from u in dbContext.Movies
-                         select u;
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (var a in dbContext.Levels)
-            {
-                selectList.Add(new SelectListItem() { Text = a.LevelName, Value = a.LevelID.ToString() });
-            }
-            ViewData["list"] = selectList;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                result = result.Where(u => u.Title == searchString);
-            }
-            if (!string.IsNullOrEmpty(list))
-            {
-                result = result.Where(u => u.level.LevelID == val);
-            }
-            return Content(result);
-        }
+        //[ActionName("ListTemplete")]
+        //[HttpPost]
+        //public ActionResult ListTempleteA(string list, string searchString)
+        //{
+        //    int val = Convert.ToInt32(list);
+        //    MovieDBContext dbContext = new MovieDBContext();
+        //    var result = from u in dbContext.Movies
+        //                 select u;
+        //    List<SelectListItem> selectList = new List<SelectListItem>();
+        //    foreach (var a in dbContext.Levels)
+        //    {
+        //        selectList.Add(new SelectListItem() { Text = a.LevelName, Value = a.LevelID.ToString() });
+        //    }
+        //    ViewData["list"] = selectList;
+        //    if (!string.IsNullOrEmpty(searchString))
+        //    {
+        //        result = result.Where(u => u.Title == searchString);
+        //    }
+        //    if (!string.IsNullOrEmpty(list))
+        //    {
+        //        result = result.Where(u => u.level.LevelID == val);
+        //    }
+        //    return Content(result);
+        //}
 
 
-            public ActionResult Create()
+        public ActionResult Create()
         {
             MovieDBContext dbContext = new MovieDBContext();
             ViewBag.level = new SelectList(dbContext.Levels, "LevelName", "LevelName");
