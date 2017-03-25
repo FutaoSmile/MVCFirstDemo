@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         {
             return View();
         }
-        public ActionResult Robote()
+        public ActionResult Robot()
         {
             return View();
         }

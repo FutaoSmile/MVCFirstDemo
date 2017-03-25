@@ -3,15 +3,38 @@
     ViewBag.Title = "ShowData";
 }
 
-
-<h2>ShowData</h2>
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $.ajax({
             url: "http://localhost:62552/api/Movies/GetMovies",
-            success: function (data) { alert(data); }
-        })
-        // $.get("http://localhost:62552/api/Movies", { ID: 6 }).success(function (data) { alert(data); });
+            method: "GET",
+            success: function (data) {
+                //$("#content_id").html(JSON.stringify(data))
+                var a = JSON.parse(JSON.stringify(data));
+                for (var i = 0; i < a.length; i++) {
+                    var edit = "http://localhost:57592/Movie/EditTemplate/" + a[i].ID;
+                    var del = "http://localhost:57592/Movie/DeleteTemplate/" + a[i].ID;
+                    var details = "http://localhost:57592/Movie/Details/" + a[i].ID;
+                    $("#show_movies").append("<tr><td>" + a[i].Title + "</td><td>" + a[i].ReleaseTime + "</td><td>" + a[i].Genre + "</td><td>" + a[i].Price + "</td><td>" + a[i].level.LevelName + "</td><td>" + "   <a class='text-success' href=" + details + ">详情</a>  <a class='text-primary' href=" + edit + "> 修改</a>   <a class='text-danger' href=" + del + ">删除</a>" + "</td></tr>")
+                }
+            }
+        });
+        // $.get("http://localhost:62552/api/Movies/GetMovies", { ID: 6 }).success(function (data) { alert(data); });
+
     })
 </script>
+
+<h2>ShowData</h2>
+<a class="btn btn-success btn-lg btn-block" role="button" href="http://localhost:57592/Movie/Create" style="margin-bottom:5px" id="create">新增数据</a>
+@*<p id="content_id" class="text-success" style="padding:5px"></p>*@
+<table border="1" id="show_movies" class="table table-striped table-hover text-center">
+    <tr class="text-primary">
+        <td>电影名称</td>
+        <td>上映时间</td>
+        <td>类型</td>
+        <td>票价</td>
+        <td>等级</td>
+        <td>操作</td>
+    </tr>
+</table>

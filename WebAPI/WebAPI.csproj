@@ -244,7 +244,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Movies\View.cshtml" />
     <Content Include="Views\Home\ShowData.cshtml" />
-    <Content Include="Views\Home\Robote.cshtml" />
+    <Content Include="Views\Home\Robot.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
