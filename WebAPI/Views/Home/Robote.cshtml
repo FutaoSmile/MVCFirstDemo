@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Robote";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit_btn").click(function () {
+            $.ajax({
+                url: "http://www.tuling123.com/openapi/api",
+                method: "POST",
+                data: {
+                    "key": "dced66b42c7c4045bbccc8ff868e5204",
+                    "info": $('#location_text').val()+ $('#SearchInfo_text').val(),
+                    "userid": $('#userid_text').val()
+                },
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+                    // $("#result_text").html(JSON.stringify(data))
+                    $("#result_text").html(data.text);
+                    $("#a_id").attr("href",data.url);
+                }
+        })
+        })
+        
+    })
+
+</script>
+<h2>Robote</h2>
+<table>
+    <tr>
+        <td><label>查询信息：</label></td>
+        <td>
+            <input type="text" id="SearchInfo_text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="location_text">地址：</label>
+        </td>
+        <td><input type="text" id="location_text" /></td>
+    </tr>
+    <tr>
+        <td><label>ID:</label></td>
+        <td><input type="tel" id="userid_text"/></td>
+    </tr>
+    <tr>
+        <td>
+            <button id="submit_btn">提交</button>
+        </td>
+    </tr>
+</table>
+<p class="text-primary" id="result_text"></p>
+<img id="img_id"/>
+<a id="a_id">图片</a>

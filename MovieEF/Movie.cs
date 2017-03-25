@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MovieEF
-{
+using System.Runtime.Serialization;
 
+namespace MovieEF
+{    
     public class Movie
     {
         /// <summary>

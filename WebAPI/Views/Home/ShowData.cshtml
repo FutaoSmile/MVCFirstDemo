@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ShowData";
+}
+
+
+<h2>ShowData</h2>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:62552/api/Movies/GetMovies",
+            success: function (data) { alert(data); }
+        })
+        // $.get("http://localhost:62552/api/Movies", { ID: 6 }).success(function (data) { alert(data); });
+    })
+</script>

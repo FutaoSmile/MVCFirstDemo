@@ -14,5 +14,14 @@ namespace WebAPI.Controllers
 
             return View();
         }
+
+        public ActionResult ShowData()
+        {
+            return View();
+        }
+        public ActionResult Robote()
+        {
+            return View();
+        }
     }
 }
