@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "ShowData";
 }
-
 <script src="~/Scripts/jquery-1.10.2.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $.ajax({
@@ -11,12 +11,13 @@
             method: "GET",
             success: function (data) {
                 //$("#content_id").html(JSON.stringify(data))
-                var a = JSON.parse(JSON.stringify(data));
+                //var a = JSON.parse(JSON.stringify(data));
+                var a = data;
                 for (var i = 0; i < a.length; i++) {
                     var edit = "http://localhost:57592/Movie/EditTemplate/" + a[i].ID;
                     var del = "http://localhost:57592/Movie/DeleteTemplate/" + a[i].ID;
                     var details = "http://localhost:57592/Movie/Details/" + a[i].ID;
-                    $("#show_movies").append("<tr><td>" + a[i].Title + "</td><td>" + a[i].ReleaseTime + "</td><td>" + a[i].Genre + "</td><td>" + a[i].Price + "</td><td>" + a[i].level.LevelName + "</td><td>" + "   <a class='text-success' href=" + details + ">详情</a>  <a class='text-primary' href=" + edit + "> 修改</a>   <a class='text-danger' href=" + del + ">删除</a>" + "</td></tr>")
+                    $("#show_movies").append("<tr><td>" + a[i].Title + "</td><td>" + a[i].ReleaseTime + "</td><td>" + a[i].Genre + "</td><td>" + a[i].Price + "</td><td>" + a[i].level.LevelName + "</td><td>" + "   <a class='text-success' href=" + details + ">详情</a> | <a class='text-primary' href=" + edit + "> 修改</a>  | <a class='text-danger' href=" + del + ">删除</a>" + "</td></tr>")
                 }
             }
         });

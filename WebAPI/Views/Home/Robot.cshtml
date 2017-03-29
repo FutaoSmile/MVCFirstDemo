@@ -2,29 +2,58 @@
 @{
     ViewBag.Title = "Robote";
 }
+
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#submit_btn").click(function () {
+
+        $("#submit_btn_turing").click(function () {
             $.ajax({
                 url: "http://www.tuling123.com/openapi/api",
                 method: "POST",
                 data: {
                     "key": "dced66b42c7c4045bbccc8ff868e5204",
-                    "info": $('#location_text').val()+ $('#SearchInfo_text').val(),
+                    "info": $('#location_text').val() + $('#SearchInfo_text').val(),
                     "userid": $('#userid_text').val()
                 },
                 success: function (data) {
                     //alert(JSON.stringify(data));
                     // $("#result_text").html(JSON.stringify(data))
                     $("#result_text").html(data.text);
-                    $("#a_id").attr("href",data.url);
+                    //$("#a_id").attr("href", data.url);
                 }
-        })
-        })
-        
-    })
+                //error: function (xhr) {
+                //    alert(xhr.statusText);
+                //    alert(xhr.status);
+                //    alert(xhr.state);
+                //}
+            });
+        });
 
+
+
+
+        $("#submit_btn_moli").click(function () {
+
+
+            $.ajax({
+                url: "http://i.itpk.cn/api.php?question=" + $('#location_text').val() + $('#SearchInfo_text').val() + "&api_key=" + "c5f0e4a690d9c759d9fdcd63af5e2d89" + "&api_secret=" + "il8uod6oa1tb",
+                method: "POST",
+                data: {},
+                success: function (data) {
+                    //alert(JSON.stringify(data));
+                    // $("#result_text").html(JSON.stringify(data))
+                    $("#moli_p").html(JSON.stringify(data));
+                    // $("#a_id").attr("href", data.url);
+                },
+            });
+
+
+
+
+        });
+    }
+    );
 </script>
 <h2>Robote</h2>
 <table>
@@ -42,14 +71,22 @@
     </tr>
     <tr>
         <td><label>ID:</label></td>
-        <td><input type="tel" id="userid_text"/></td>
+        <td><input type="tel" id="userid_text" /></td>
     </tr>
     <tr>
         <td>
-            <button id="submit_btn">提交</button>
+            <button id="submit_btn_turing">Turing AI</button>
+        </td>
+        <td>
+            <button id="submit_btn_moli">Moli AI</button>
         </td>
     </tr>
 </table>
+
+
+<label>Turing</label>
 <p class="text-primary" id="result_text"></p>
-<img id="img_id"/>
-<a id="a_id">图片</a>
+<img id="img_id" />
+
+<label>Moli</label>
+<p id="moli_p"></p>
