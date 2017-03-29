@@ -1,0 +1,62 @@
+﻿
+@using Webdiyer.WebControls.Mvc
+@model PagedList<MovieEF.Movie>
+
+
+
+<div id="show_movies" style="margin-top:15px">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th class="nowrap">序号</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.level.LevelName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+        </tr>
+        @{ int i = 0;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(Model.StartItemIndex + i++)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.level.LevelName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </table>=
+    <div class="text-center">
+        @Ajax.Pager(Model, new PagerOptions
+   {
+       PageIndexParameterName = "id",
+       ContainerTagName = "ul",
+       CssClass = "pagination",
+       CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+       DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+       PagerItemTemplate = "<li>{0}</li>"
+   },
+        new MvcAjaxOptions { UpdateTargetId = "show_movies" });
+    </div>
+</div>

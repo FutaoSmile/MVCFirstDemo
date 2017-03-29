@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 using Movies.Models;
 using MovieEF;
+using Webdiyer.WebControls.Mvc;
 namespace Movies.Controllers
 {
     public class MovieController : Controller
@@ -26,9 +27,10 @@ namespace Movies.Controllers
             var result = from u in dbContext.Movies
                          select u;
             List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (var a in dbContext.Levels) {
+            foreach (var a in dbContext.Levels)
+            {
 
-                selectList.Add(new SelectListItem() { Text= a.LevelName ,Value=a.LevelID.ToString()});
+                selectList.Add(new SelectListItem() { Text = a.LevelName, Value = a.LevelID.ToString() });
             }
             ViewData["list"] = selectList;
             if (!string.IsNullOrEmpty(searchString))
@@ -205,6 +207,18 @@ namespace Movies.Controllers
         public ActionResult SearchResult(Movie movie)
         {
             return View();
+        }
+
+        //杨涛的Asp.net 分页技术
+        public ActionResult AjaxPager(int id = 1)
+        {
+            MovieDBContext dbContext = new MovieDBContext();
+            var model = dbContext.Movies.OrderBy(a => a.ReleaseTime).ToPagedList(id, 5);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_MovieTable", model);
+            }
+            else { return View(model); }
         }
     }
 }

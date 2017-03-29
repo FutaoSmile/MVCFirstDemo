@@ -24,12 +24,22 @@
 
 <div ng-controller="ListController">
     <table class="table table-hover table-striped">
+        <tr>
+            <td>电影名称</td>
+            <td>电影类型</td>
+            <td>上映时间</td>
+            <td>电影票价</td>
+            <td>电影级别</td>
+            <td>操作</td>
+        </tr>
         <tr ng-repeat="movie in movies">
             <td>{{movie.Title}}</td>
-            <td>{{movie.Price}}</td>
+            <td>{{movie.Genre}}</td>
             <td>{{movie.ReleaseTime}}</td>
+            <td>{{movie.Price}}</td>
             <td>{{movie.level.LevelName}}</td>
-            <td><a href="#/details/{{movie.ID}}">Details</a></td>
+            <td><a href="#/details/{{movie.ID}}">Details</a>    &nbsp;&nbsp;
+              <button class="btn btn-success" ng-click="delete(movie)">Delete</button></td>
         </tr>
 
     </table>

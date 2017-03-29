@@ -120,6 +120,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Webdiyer.MvcPager">
+      <HintPath>C:\Users\11851\Desktop\微创班\一些资料\MvcPager-master\MvcPager\bin\Debug\Webdiyer.MvcPager.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -206,6 +209,7 @@
     <Content Include="Client\Scripts\atTheMovies.js" />
     <Content Include="Client\Scripts\DetailsController.js" />
     <Content Include="Client\Scripts\ListController.js" />
+    <Content Include="Client\Service\movieService.js" />
     <Content Include="Client\views\details.html" />
     <Content Include="Client\views\list.html" />
     <Content Include="Content\bootstrap-theme.css" />

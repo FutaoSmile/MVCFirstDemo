@@ -1,9 +1,10 @@
 ﻿@section scripts{
     <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/angular-route.js"></script>
     <script src="~/Client/Scripts/atTheMovies.js"></script>
+    <script src="~/Client/Service/movieService.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
     <script src="~/Client/Scripts/ListController.js"></script>
-    
+
 }
 
 <div data-ng-app="atTheMovies">
@@ -14,34 +15,34 @@
 
 
 @*<div ng-app="atTheMovies">
-    <div ng-controller="ListController">
-        {{movies}}
-        <table class="table table-striped table-hover text-center">
-            <tr class="text-primary">
-                <td>电影名称</td>
-                <td>上映时间</td>
-                <td>类型</td>
-                <td>票价</td>
-                <td>等级</td>
-            </tr>
-            <tr ng-repeat="movie in movies.data">
-                <td>
-                    {{movie.Title}}
-                </td>
-                <td>
-                    {{movie.ReleaseTime}}
-                </td>
-                <td>
-                    {{movie.Genre}}
-                </td>
-                <td>
-                    {{movie.Price}}
-                </td>
-                <td>
-                    {{movie.level.LevelName}}
-                </td>
-            </tr>
+        <div ng-controller="ListController">
+            {{movies}}
+            <table class="table table-striped table-hover text-center">
+                <tr class="text-primary">
+                    <td>电影名称</td>
+                    <td>上映时间</td>
+                    <td>类型</td>
+                    <td>票价</td>
+                    <td>等级</td>
+                </tr>
+                <tr ng-repeat="movie in movies.data">
+                    <td>
+                        {{movie.Title}}
+                    </td>
+                    <td>
+                        {{movie.ReleaseTime}}
+                    </td>
+                    <td>
+                        {{movie.Genre}}
+                    </td>
+                    <td>
+                        {{movie.Price}}
+                    </td>
+                    <td>
+                        {{movie.level.LevelName}}
+                    </td>
+                </tr>
 
-        </table>
-    </div>
-</div>*@
+            </table>
+        </div>
+    </div>*@

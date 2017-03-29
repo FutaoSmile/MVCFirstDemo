@@ -72,6 +72,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Webdiyer.MvcPager">
+      <HintPath>C:\Users\11851\Desktop\微创班\一些资料\MvcPager-master\MvcPager\bin\Debug\Webdiyer.MvcPager.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -155,6 +158,8 @@
     <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Movie\EditTemplate.cshtml" />
     <Content Include="Views\Movie\DeleteTemplate.cshtml" />
+    <Content Include="Views\Shared\_MovieTable.cshtml" />
+    <Content Include="Views\Movie\AjaxPager.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

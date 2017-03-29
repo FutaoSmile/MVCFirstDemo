@@ -9,4 +9,5 @@
             .otherwise({ redirectTo: "/list" });
     };
     app.config(config);
+    app.constant("movieApiUrl", "/api/movies/");
 }());   
